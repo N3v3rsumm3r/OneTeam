@@ -1,14 +1,4 @@
 Rails.application.routes.draw do
-  
-  resources :desired_skills
-
-  resources :current_skills
-
-  resources :positions
-
-  resources :groups
-
-  resources :departments
 
   root             'static_pages#home'
   get 'help'    => 'static_pages#help'
@@ -17,10 +7,12 @@ Rails.application.routes.draw do
   get 'signup'  => 'users#new'
 
   resources :skills
-
   resources :locations
-
   resources :deparments
-
-  resources :users
+  resources :users 
+  resources :desired_skills
+  resources :current_skills
+  resources :positions
+  resources :groups
+  resources :departments
 end
