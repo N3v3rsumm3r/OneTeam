@@ -7,11 +7,11 @@
       <%= f.label :first_name %>
       <%= f.text_field :first_name %>
     
-      <%= f.label :email %>
-      <%= f.email_field :email %>
-    
       <%= f.label :last_name %>
       <%= f.text_field :last_name %>
+      
+      <%= f.label :email %>
+      <%= f.email_field :email %>
     
       <%= f.label :manager %><br>
       <%= f.text_field :manager %>
@@ -20,17 +20,20 @@
       <%= f.number_field :years_with_company %>
   
       <%= f.label :position_id %><br>
-      <%= f.number_field :position_id %>
+      <%= f.collection_select :position_id, @position, :id, :name,
+                              :prompt => "Your Position" %>
 
       <%= f.label :department_id %><br>
-      <%= f.number_field :department_id %>
+      <%= f.collection_select :department_id, @department, :id, :name,
+                              :prompt => "Your Department" %>
 
       <%= f.label :group_id %><br>
-      <%= f.number_field :group_id %>
+      <%= f.collection_select :group_id, @group, :id, :name,
+                              :prompt => "Your Group" %>
 
       <%= f.label :location_id %><br>
-      <%= fields_for @user.location do |name| %>
-      <%= name.select :name %>
+      <%= f.collection_select :location_id, @location, :id, :name,
+                              :prompt => "Your Location" %>
   
       <%= f.label :password %>
       <%= f.password_field :password %>
@@ -39,6 +42,6 @@
       <%= f.password_field :password_confirmation %>
 
       <%= f.submit "Create my account", class: "btn btn-primary" %>
-    <% end %>
+      <% end %>
   </div>
 </div>
