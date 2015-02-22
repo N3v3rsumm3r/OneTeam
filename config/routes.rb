@@ -8,7 +8,6 @@ Rails.application.routes.draw do
 
   resources :skills
   resources :locations
-  resources :deparments
   resources :users 
   resources :desired_skills
   resources :current_skills
